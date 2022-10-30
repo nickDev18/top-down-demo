@@ -1,0 +1,2 @@
+﻿63988
+C:/Users/Nick/Desktop/Godot/bin/godot.windows.opt.tools.64.mono.exe

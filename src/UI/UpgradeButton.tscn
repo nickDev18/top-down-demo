@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/SceneChangeButton.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Base_Button
+
+export(String) var variable_name
+export (float) var variable_value
+
+
+func _on_UpgradeButton_button_up() -> void:
+	Global.player.set(variable_name, variable_value)
+"
+
+[node name="UpgradeButton" instance=ExtResource( 1 )]
+script = SubResource( 1 )
+
+[connection signal="button_up" from="." to="." method="_on_UpgradeButton_button_up"]

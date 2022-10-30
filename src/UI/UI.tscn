@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UI/UI.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/Cursor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/SceneChangeButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/ReloadButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/score_font.tres" type="DynamicFont" id=7]
+
+[node name="UI" type="Node2D"]
+pause_mode = 2
+z_index = 100
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 500.0
+margin_right = 400.0
+margin_bottom = 224.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+color = Color( 0, 0, 0, 0.733333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Control/PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.0
+margin_top = 26.0
+margin_right = 44.0
+margin_bottom = 53.9998
+text = "Wave 1"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="VBoxContainer" parent="Control/PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -44.0
+margin_right = 56.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReloadButton" parent="Control/PauseOverlay/PauseMenu" instance=ExtResource( 6 )]
+margin_right = 112.0
+margin_bottom = 26.0
+button_text = "Retry"
+is_focused = true
+
+[node name="SceneChangeButton3" parent="Control/PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_top = 30.0
+margin_right = 112.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( -248, -40 )
+button_text = "Menu"
+scene_path = "res://src/UI/MainMenu.tscn"
+
+[node name="QuitButton" parent="Control/PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+pause_mode = 0
+margin_top = 60.0
+margin_right = 112.0
+margin_bottom = 86.0
+button_text = "Quit"
+
+[node name="Score" type="Label" parent="Control"]
+modulate = Color( 0.847059, 0.847059, 0.964706, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0892857
+margin_left = -336.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 184, 216 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.988235, 0.968627, 1, 1 )
+text = "1
+"
+align = 2
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highscore" type="Label" parent="Control"]
+modulate = Color( 0.847059, 0.847059, 0.964706, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -112.0
+margin_right = 48.0
+margin_bottom = -53.0
+rect_scale = Vector2( 0.572115, 0.572115 )
+rect_pivot_offset = Vector2( 184, 216 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.988235, 0.968627, 1, 1 )
+text = "120
+"
+align = 2
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" parent="." instance=ExtResource( 3 )]
+pause_mode = 2

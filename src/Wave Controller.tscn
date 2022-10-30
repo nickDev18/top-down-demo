@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 272, 0, 0, 0, 0, 0, 272, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Wave Controller" type="Node2D"]
+
+[node name="SpawnPath" type="Path2D" parent="."]
+position = Vector2( 0, 0.605804 )
+scale = Vector2( 0.833333, 0.821302 )
+curve = SubResource( 1 )
+
+[node name="EnemySpawnPoints" type="PathFollow2D" parent="SpawnPath"]
+rotate = false
+
+[node name="Spawn Rate" type="Timer" parent="."]
+
+[node name="Spawn Delay" type="Timer" parent="."]
